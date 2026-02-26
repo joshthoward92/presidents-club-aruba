@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amenity Cards — SharePoint Embed Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Jost', 'Segoe UI', sans-serif;
+    background: #F2E8D9;
+    padding: 60px 48px;
+  }
+
+  /* ── Section Header ── */
+  .section-header {
+    margin-bottom: 48px;
+  }
+  .eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #0A7B7B;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: #0A7B7B;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 400;
+    color: #2C2C2C;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .section-title em {
+    font-style: italic;
+    color: #0A7B7B;
+  }
+  .section-intro {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #6B6460;
+    line-height: 1.85;
+    max-width: 680px;
+  }
+
+  /* ── Cards Grid ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .card {
+    background: #FFFFFF;
+    padding: 36px 30px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(10, 123, 123, 0.08);
+  }
+
+  /* The teal bottom border that sweeps in on hover */
+  .card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #0A7B7B;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(10, 123, 123, 0.14);
+  }
+
+  .card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 18px;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover .card-icon {
+    transform: scale(1.15);
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2C2C2C;
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
+    transition: color 0.3s ease;
+  }
+
+  .card:hover .card-title {
+    color: #0A7B7B;
+  }
+
+  .card-desc {
+    font-size: 0.83rem;
+    color: #6B6460;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    body { padding: 40px 24px; }
+  }
+  @media (max-width: 580px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Section Header -->
+  <div class="section-header">
+    <div class="eyebrow">The Resort</div>
+    <h2 class="section-title">Everything You Need.<br><em>Nothing You Don't.</em></h2>
+    <p class="section-intro">Set on 12 lush acres directly on the white sands of Palm Beach, the Hyatt Regency Aruba is the most refined full-service resort on the island. From the moment you arrive, every detail is handled — the beach is steps away, the pool is calling, and the only thing left to decide is whether you start at the spa or the swim-up bar.</p>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards-grid">
+
+    <div class="card">
+      <span class="card-icon">🏊</span>
+      <div class="card-title">Two Pools, One Decision</div>
+      <div class="card-desc">Choose the 8,000 sq. ft. Activity Pool — two-story waterslide, waterfalls, and a swim-up bar — or the Trankilo adults-only pool for something more serene.</div>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🌊</span>
+      <div class="card-title">Private Palm Beach</div>
+      <div class="card-desc">Step directly from the resort onto one of the most celebrated beaches in the Caribbean. Beach palapas, watersports, and cabana rentals all steps from your door.</div>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">💆</span>
+      <div class="card-title">ZoiA Spa</div>
+      <div class="card-desc">Aruba's premier resort spa — massages, facials, and body treatments using locally sourced ingredients. Specialty treatments available poolside at Trankilo.</div>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🍽️</span>
+      <div class="card-title">Four Restaurants On-Site</div>
+      <div class="card-desc">From open-air seafood at Ruinas del Mar to beachfront bites at Palms Restaurant to poolside drinks at Balashi Bar & Grill — something great, always within reach.</div>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🎰</span>
+      <div class="card-title">Casino & Nightlife</div>
+      <div class="card-desc">The 11,200 sq. ft. casino features slots and table games. Palm Beach's entertainment strip is just minutes away on foot.</div>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🏄</span>
+      <div class="card-title">Activities On Demand</div>
+      <div class="card-desc">Daily yoga, mixology classes, tennis, scuba diving, catamaran sunset cruises, snorkeling, kayaking — and an Adventure Concierge team to book it all for you.</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
